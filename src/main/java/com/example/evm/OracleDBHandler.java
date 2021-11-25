@@ -58,7 +58,7 @@ public class OracleDBHandler extends PersistenceHandler
 
 
     @Override
-    void castVote(Voter voter, Candidate candidate)
+    String castVote(Voter voter, Candidate candidate)
     {
 
 
@@ -93,10 +93,12 @@ public class OracleDBHandler extends PersistenceHandler
                 {
                     System.out.println("Vote was added in DB");
                     AddVoterToDB(voter);
+
                 }
                 else
                 {
                     System.out.println("Vote was not added in DB");
+
                 }
 
                 con.close();
@@ -106,6 +108,12 @@ public class OracleDBHandler extends PersistenceHandler
                 System.err.println(e.getMessage());
             }
         }
+        else
+        {
+            return "Voter as already casted the Vote !";
+        }
+
+        return "Vote Casted  !";
     }
 
     void AddVoterToDB(Voter voter)

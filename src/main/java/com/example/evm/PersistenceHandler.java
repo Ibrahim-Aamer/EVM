@@ -6,5 +6,5 @@ public abstract class PersistenceHandler
 {
 
     abstract ArrayList<Candidate> RetrieveCandidates();
-    abstract void castVote(Voter voter,Candidate candidate);
+    abstract String castVote(Voter voter,Candidate candidate);
 }
